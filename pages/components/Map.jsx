@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import tw from "tailwind-styled-components";
 import mapboxGl from "mapbox-gl";
 
 mapboxGl.accessToken = process.env.MAPBOX_TOKEN;
 
 const Map = (props) => {
+  const mp = useRef();
+
   useEffect(() => {
     // center of the map
     const center = props.pickupCoords
@@ -28,15 +30,21 @@ const Map = (props) => {
     props.pickupCoords &&
       props.dropoffCoords &&
       map.fitBounds([props.pickupCoords, props.dropoffCoords], { padding: 60 });
+
+    console.log(mp);
   }, [props]);
 
   const addMarker = (lat, long, map) => {
     const marker1 = new mapboxGl.Marker().setLngLat([lat, long]).addTo(map);
   };
 
-  return <Wrapper id="map"></Wrapper>;
+  return (
+    <>
+      <Wrapper id="map" ref={mp} />
+    </>
+  );
 };
 
-const Wrapper = tw.div`flex-1 `;
+const Wrapper = tw.div`flex-1`;
 
 export default Map;
