@@ -15,27 +15,39 @@ const Confirm = () => {
   const [dropoffCoords, setDropoffCoords] = useState();
 
   useEffect(() => {
-    getLocation(pickup, setPickupCoords);
-    getLocation(dropoff, setDropoffCoords);
+    pickup && getPickup();
+    dropoff && getDropoff();
   }, []);
 
-  useEffect(() => {
-    console.log(pickupCoords);
-    console.log(dropoffCoords);
-  }, [pickupCoords, dropoffCoords]);
-
-  const getLocation = async (location, callback) => {
+  const getPickup = async () => {
     try {
       const data = await axios.get(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json`,
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json`,
         {
           params: {
-            access_token: process.env.MAPBOX_TOKEN,
+            access_token: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
             limit: 1,
           },
         }
       );
-      callback(data.data.features[0].center);
+      setPickupCoords(data.data.features[0].center);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getDropoff = async () => {
+    try {
+      const data = await axios.get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${dropoff}.json`,
+        {
+          params: {
+            access_token: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
+            limit: 1,
+          },
+        }
+      );
+      setDropoffCoords(data.data.features[0].center);
     } catch (error) {
       console.log(error);
     }

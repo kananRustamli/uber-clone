@@ -10,19 +10,21 @@ const RideSelector = (props) => {
   useEffect(() => {
     const loadData = async () => {
       const fetchedData = await axios.get(
-        `/${props.pickupCoords};${props.dropoffCoords}`,
+        `/${props.pickupCoords[0]},${props.pickupCoords[1]};${props.dropoffCoords[0]},${props.dropoffCoords[1]}`,
         {
           baseURL: "https://api.mapbox.com/directions/v5/mapbox/driving/",
           params: {
-            access_token: process.env.MAPBOX_TOKEN,
+            access_token: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
           },
         }
       );
       setRideDuration(fetchedData.data.routes[0].duration);
       setRidePrice((rideDuration / 100).toFixed(2));
+      console.log(rideDuration);
     };
     props.pickupCoords && props.dropoffCoords && loadData();
-  }, [props.pickupCoords, props.dropoffCoords]);
+    console.log(props);
+  }, []);
 
   return (
     <Wrapper>
