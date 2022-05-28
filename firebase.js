@@ -7,12 +7,12 @@ import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_KEY,
-  authDomain: "uber-clone-2f431.firebaseapp.com",
-  projectId: "uber-clone-2f431",
-  storageBucket: "uber-clone-2f431.appspot.com",
-  messagingSenderId: "949932655370",
-  appId: "1:949932655370:web:f3bc961ebcb97260f930f3",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGE_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
 };
 
 // Initialize Firebase

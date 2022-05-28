@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import tw from "tailwind-styled-components";
 import mapboxGl from "mapbox-gl";
 
 mapboxGl.accessToken = process.env.MAPBOX_TOKEN;
 
-const Map = (props) => {
-  const mp = useRef();
+// mapboxGl.accessToken =
+// "pk.eyJ1Ijoia25ucnN0bWwiLCJhIjoiY2wxeHJueXYyMDRlejNpbnMyNzBsYWF3cSJ9.0_PwbfEU5LIu33rS38jw5g";
 
+const Map = (props) => {
   useEffect(() => {
     // center of the map
     const center = props.pickupCoords
@@ -30,8 +31,6 @@ const Map = (props) => {
     props.pickupCoords &&
       props.dropoffCoords &&
       map.fitBounds([props.pickupCoords, props.dropoffCoords], { padding: 60 });
-
-    console.log(mp);
   }, [props]);
 
   const addMarker = (lat, long, map) => {
@@ -40,7 +39,7 @@ const Map = (props) => {
 
   return (
     <>
-      <Wrapper id="map" ref={mp} />
+      <Wrapper id="map" />
     </>
   );
 };

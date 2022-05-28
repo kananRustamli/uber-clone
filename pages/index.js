@@ -66,7 +66,7 @@ export default function Home() {
 }
 
 const Container = tw.div`flex items-center justify-center width-screen bg-gray-500`;
-const Wrapper = tw.div`flex flex-col h-screen w-[480x] bg-white`;
+const Wrapper = tw.div`flex flex-col h-screen w-[480px] bg-white`;
 
 const ActionItems = tw.div`flex-1 p-4`;
 const Header = tw.div`flex justify-between items-center`;
