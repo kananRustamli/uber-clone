@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import tw from "tailwind-styled-components";
-import Uber_Logo from "./components/uber_logo.svg";
 
 import { useRouter } from "next/router";
 
@@ -20,7 +19,7 @@ const Login = () => {
   return (
     <Container>
       <Wrapper>
-        <UberLogo src={Uber_Logo.src} alt="" />
+        <UberLogo src={/img/Uber_logo.svg} alt="" />
         <Title>Log in to your Google accout to continue..</Title>
         <Image src="/img/login-image.png" alt="" />
         <SignInButton onClick={() => signInWithPopup(auth, authProvider)}>

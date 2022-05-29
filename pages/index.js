@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
 import Map from "./components/Map";
-import UberLogo from "./components/Uber_logo.svg";
 
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
