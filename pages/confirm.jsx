@@ -15,9 +15,9 @@ const Confirm = () => {
   const [dropoffCoords, setDropoffCoords] = useState(null);
 
   useEffect(() => {
-    pickupCoords === null && getPickup();
-    dropoffCoords === null && getDropoff();
-  }, [pickupCoords, dropoffCoords]);
+    getPickup();
+    getDropoff();
+  });
 
   const getPickup = async () => {
     try {
