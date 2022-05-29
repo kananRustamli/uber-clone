@@ -11,13 +11,13 @@ const Confirm = () => {
   const router = useRouter();
   const { pickup, dropoff } = router.query;
 
-  const [pickupCoords, setPickupCoords] = useState();
-  const [dropoffCoords, setDropoffCoords] = useState();
+  const [pickupCoords, setPickupCoords] = useState(null);
+  const [dropoffCoords, setDropoffCoords] = useState(null);
 
   useEffect(() => {
-    pickup && getPickup();
-    dropoff && getDropoff();
-  }, []);
+    pickup && pickupCoords === null && getPickup();
+    dropoff && dropoffCoords === null && getDropoff();
+  }, [pickupCoords, dropoffCoords]);
 
   const getPickup = async () => {
     try {

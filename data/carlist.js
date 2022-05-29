@@ -2,7 +2,7 @@ export const carList = [
   {
     imgUrl: "/img/uberx.png",
     service: "UberX",
-    multiplier: 1,
+    multiplier: 1.0,
   },
   {
     imgUrl: "/img/uberxl.png",

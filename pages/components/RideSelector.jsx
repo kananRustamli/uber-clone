@@ -4,9 +4,7 @@ import tw from "tailwind-styled-components";
 import { carList } from "../../data/carlist";
 
 const RideSelector = (props) => {
-  const [rideDuration, setRideDuration] = useState();
-  const [ridePrice, setRidePrice] = useState();
-
+  const [ridePrice, setRidePrice] = useState(0);
   useEffect(() => {
     const loadData = async () => {
       const fetchedData = await axios.get(
@@ -18,13 +16,12 @@ const RideSelector = (props) => {
           },
         }
       );
-      setRideDuration(fetchedData.data.routes[0].duration);
-      setRidePrice((rideDuration / 100).toFixed(2));
-      console.log(rideDuration);
+      const duration = fetchedData.data.routes[0].duration;
+      setRidePrice(duration / 200);
+      console.log(ridePrice);
     };
-    props.pickupCoords && props.dropoffCoords && loadData();
-    console.log(props);
-  }, []);
+    props.pickupCoords && props.dropoffCoords && ridePrice === 0 && loadData();
+  }, [props]);
 
   return (
     <Wrapper>
@@ -38,7 +35,7 @@ const RideSelector = (props) => {
                 <CarTitle>{car.service}</CarTitle>
                 <CarArriveTime>3 minutes</CarArriveTime>
               </CarDetails>
-              <CarPrice>{ridePrice * car.multiplier} $</CarPrice>
+              <CarPrice>{(ridePrice * car.multiplier).toFixed(2)} $</CarPrice>
             </CarItem>
           );
         })}

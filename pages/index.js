@@ -58,7 +58,9 @@ export default function Home() {
               Reserve
             </ActionButton>
           </ActionButtons>
-          <InputButton>Where to?...</InputButton>
+          <InputButton>
+            <Link href="/search">Where to?...</Link>
+          </InputButton>
         </ActionItems>
       </Wrapper>
     </Container>
@@ -78,7 +80,7 @@ const UserProfileName = tw.div`mr-4 w-24 text-sm text-right`;
 
 const ActionButtons = tw.div`flex`;
 const ActionButton = tw.div`
-  bg-grey-200 rounded-lg
+  bg-grey-200 rounded-lg cursor-pointer
   m-1 h-32
   text-xl
   flex flex-col flex-1 gap-2
@@ -92,5 +94,5 @@ const InputButton = tw.div`
   bg-gray-200
   h-20 p-4 mt-8
   text-2xl
-  flex items-center 
+  flex items-center cursor-pointer
 `;

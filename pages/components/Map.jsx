@@ -13,6 +13,7 @@ const Map = (props) => {
     const center = props.pickupCoords
       ? [...props.pickupCoords]
       : [49.98095, 40.38525];
+
     // init map
     const map = new mapboxGl.Map({
       container: "map",
@@ -21,13 +22,13 @@ const Map = (props) => {
       zoom: 12,
     });
 
-    // add lat and longtitude (exists for confirm page  )
+    // add lat and longtitude (for confirm page)
     props.pickupCoords &&
       addMarker(props.pickupCoords[0], props.pickupCoords[1], map);
     props.dropoffCoords &&
       addMarker(props.dropoffCoords[0], props.dropoffCoords[1], map);
 
-    // add auto zoom (exists for confirm page)
+    // add auto zoom (for confirm page)
     props.pickupCoords &&
       props.dropoffCoords &&
       map.fitBounds([props.pickupCoords, props.dropoffCoords], { padding: 60 });
