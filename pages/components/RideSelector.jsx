@@ -5,6 +5,7 @@ import { carList } from "../../data/carlist";
 
 const RideSelector = (props) => {
   const [ridePrice, setRidePrice] = useState(0);
+
   useEffect(() => {
     const loadData = async () => {
       const fetchedData = await axios.get(
@@ -18,7 +19,6 @@ const RideSelector = (props) => {
       );
       const duration = fetchedData.data.routes[0].duration;
       setRidePrice(duration / 200);
-      console.log(ridePrice);
     };
     props.pickupCoords && props.dropoffCoords && ridePrice === 0 && loadData();
   }, [props]);
@@ -30,7 +30,7 @@ const RideSelector = (props) => {
         {carList.map((car, index) => {
           return (
             <CarItem key={index}>
-              <CarImage src={car.imgUrl} />
+              <CarImage src={car.imgUrl} alt={car.service} />
               <CarDetails>
                 <CarTitle>{car.service}</CarTitle>
                 <CarArriveTime>3 minutes</CarArriveTime>

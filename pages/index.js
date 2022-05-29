@@ -33,11 +33,12 @@ export default function Home() {
         <Map />
         <ActionItems>
           <Header>
-            <Logo src={UberLogo.src} />
+            <Logo src="img/Uber_Logo.svg" alt="Logo" />
             <UserProfile>
               <UserProfileName>{user && user.name}</UserProfileName>
               <UserProfileImage
                 src={user && user.photoURL}
+                alt="Profile Image"
                 onClick={() => signOut(auth)}
               />
             </UserProfile>
@@ -45,16 +46,16 @@ export default function Home() {
           <ActionButtons>
             <Link href="/search">
               <ActionButton>
-                <ActionImage src="img/uberx.png" />
+                <ActionImage src="img/uberx.png" alt="Ride" />
                 Ride
               </ActionButton>
             </Link>
             <ActionButton>
-              <ActionImage src="img/bike.png" />
+              <ActionImage src="img/bike.png" alt="Bike" />
               Wheels
             </ActionButton>
             <ActionButton>
-              <ActionImage src="img/uberschedule.png" />
+              <ActionImage src="img/uberschedule.png" alt="Reserve" />
               Reserve
             </ActionButton>
           </ActionButtons>
