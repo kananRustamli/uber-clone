@@ -23,7 +23,7 @@ const RideSelector = (props) => {
     };
     props.pickupCoords && props.dropoffCoords && ridePrice === 0 && loadData();
     console.log(selectedService);
-  }, [props]);
+  });
 
   const handleClick = (clickedService) => {
     setSelectedService(clickedService);
