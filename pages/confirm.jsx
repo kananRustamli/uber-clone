@@ -58,7 +58,7 @@ const Confirm = () => {
       <Wrapper>
         <ButtonContainer>
           <Link href="/search">
-            <BackButton src="/img/back.png" alt="back" />
+            <BackButton src="/static/img/back.png" alt="back" />
           </Link>
         </ButtonContainer>
         <Map pickupCoords={pickupCoords} dropoffCoords={dropoffCoords} />

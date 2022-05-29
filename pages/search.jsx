@@ -11,14 +11,14 @@ const Search = () => {
       <Wrapper>
         <ButtonContainer>
           <Link href="/">
-            <BackButton src="/img/back.png" alt="back" />
+            <BackButton src="/static/img/back.png" alt="back" />
           </Link>
         </ButtonContainer>
         <InputContainer>
           <FromToIcons>
-            <CircleImg src="/img/circle.png" alt="" />
-            <LineImg src="img/line.png" alt="" />
-            <SquareImg src="img/square.png" alt="" />
+            <CircleImg src="/static/img/circle.png" alt="" />
+            <LineImg src="/staticimg/line.png" alt="" />
+            <SquareImg src="/staticimg/square.png" alt="" />
           </FromToIcons>
           <InputBoxes>
             <Input
@@ -32,10 +32,10 @@ const Search = () => {
               onChange={(e) => setDropoff(e.target.value)}
             />
           </InputBoxes>
-          <PlusIcon src="/img/plus.png" alt="plus" />
+          <PlusIcon src="/static/img/plus.png" alt="plus" />
         </InputContainer>
         <SavedPlaces>
-          <StarIcon src="/img/star.png" alt="" />
+          <StarIcon src="/static/img/star.png" alt="" />
           Saved Places
         </SavedPlaces>
         <Link
