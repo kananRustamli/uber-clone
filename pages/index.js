@@ -24,7 +24,7 @@ export default function Home() {
         router.push("/login");
       }
     });
-  }, []);
+  });
 
   return (
     <Container>
