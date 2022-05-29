@@ -32,7 +32,7 @@ export default function Home() {
         <Map />
         <ActionItems>
           <Header>
-            <Logo src="/static/img/Uber_Logo.svg" alt="Logo" />
+            <Logo src="/static/img/uber_logo.svg" alt="Logo" />
             <UserProfile>
               <UserProfileName>{user && user.name}</UserProfileName>
               <UserProfileImage
@@ -45,7 +45,7 @@ export default function Home() {
           <ActionButtons>
             <Link href="/search">
               <ActionButton>
-                <ActionImage src="/staticimg/uberx.png" alt="Ride" />
+                <ActionImage src="/static/img/uberx.png" alt="Ride" />
                 Ride
               </ActionButton>
             </Link>
