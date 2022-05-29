@@ -5,6 +5,7 @@ import { carList } from "../../data/carlist";
 
 const RideSelector = (props) => {
   const [ridePrice, setRidePrice] = useState(0);
+  const [selectedService, setSelectedService] = useState("UberX");
 
   useEffect(() => {
     const loadData = async () => {
@@ -21,7 +22,13 @@ const RideSelector = (props) => {
       setRidePrice(duration / 200);
     };
     props.pickupCoords && props.dropoffCoords && ridePrice === 0 && loadData();
+    console.log(selectedService);
   }, [props]);
+
+  const handleClick = (clickedService) => {
+    setSelectedService(clickedService);
+    console.log(selectedService);
+  };
 
   return (
     <Wrapper>
@@ -29,7 +36,11 @@ const RideSelector = (props) => {
       <Carlist>
         {carList.map((car, index) => {
           return (
-            <CarItem key={index}>
+            <CarItem
+              key={index}
+              onClick={() => handleClick(car.service)}
+              className={car.service === selectedService && "bg-gray-300"}
+            >
               <CarImage src={car.imgUrl} alt={car.service} />
               <CarDetails>
                 <CarTitle>{car.service}</CarTitle>
@@ -47,7 +58,10 @@ const RideSelector = (props) => {
 const Wrapper = tw.div`flex-1`;
 const Title = tw.div`text-gray-500 text-center text-sm p-2 border-b`;
 const Carlist = tw.div`h-1/2`;
-const CarItem = tw.div`flex-1 flex p-4 items-center`;
+const CarItem = tw.div`
+  flex-1 flex p-4 items-center
+  cursor-pointer  
+  `;
 const CarImage = tw.img`h-14 mr-2`;
 const CarDetails = tw.div`flex-1`;
 const CarTitle = tw.div`font-medium`;
