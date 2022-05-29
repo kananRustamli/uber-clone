@@ -32,12 +32,12 @@ export default function Home() {
         <Map />
         <ActionItems>
           <Header>
-            <Logo src="/static/img/uber_logo.svg" alt="Logo" />
+            <Logo src="/static/img/uberLogo.svg" alt="" />
             <UserProfile>
               <UserProfileName>{user && user.name}</UserProfileName>
               <UserProfileImage
                 src={user && user.photoURL}
-                alt="Profile Image"
+                alt=""
                 onClick={() => signOut(auth)}
               />
             </UserProfile>

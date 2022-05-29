@@ -19,7 +19,7 @@ const Login = () => {
   return (
     <Container>
       <Wrapper>
-        <UberLogo src="/static/img/uber_logo.svg" alt="" />
+        <UberLogo src="/static/img/uberLogo.svg" alt="" />
         <Title>Log in to your Google accout to continue..</Title>
         <Image src="/static/img/login-image.png" alt="" />
         <SignInButton onClick={() => signInWithPopup(auth, authProvider)}>
