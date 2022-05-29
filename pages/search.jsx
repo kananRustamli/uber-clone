@@ -1,7 +1,6 @@
 import { useState } from "react";
 import tw from "tailwind-styled-components";
 import Link from "next/dist/client/link";
-import { useRouter } from "next/router";
 
 const Search = () => {
   const [pickup, setPickup] = useState("");
