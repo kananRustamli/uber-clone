@@ -10,7 +10,7 @@ export const carList = [
     multiplier: 1.5,
   },
   {
-    imgUrl: "/static/img/uberBlack.png",
+    imgUrl: "/static/img/uberblack.png",
     service: "Black",
     multiplier: 2,
   },
